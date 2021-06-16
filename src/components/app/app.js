@@ -1,16 +1,20 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { withDataService } from '../hoc';
+import { HomePage, CartPage } from '../pages';
 
 import './app.css';
 
-const App = ({ dataService }) => {
-    console.log(dataService.getData());
-
+const App = () => {
     return (
-        <div>App</div>
+        <div>
+            <Switch>
+                <Route path='/' component={HomePage} exact />
+                <Route path='/cart' component={CartPage} />
+            </Switch>
+        </div>
     );
 }
 
-export default withDataService(App);
+export default App;
 
