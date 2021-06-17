@@ -1,9 +1,9 @@
 
-import BookConstants from '../constants';
+import { ActionConstants } from '../constants';
 
 const booksLoaded = (newBooks) => {
     return {
-        type: BookConstants.FETCH_BOOKS_SUCCESS,
+        type: ActionConstants.FETCH_BOOKS_SUCCESS,
         payload: newBooks
     }
 };

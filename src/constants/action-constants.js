@@ -1,9 +1,9 @@
 
 
-const BookConstants = {
+const ActionConstants = {
     FETCH_BOOKS_REQUEST: 'FETCH_BOOKS_REQUEST',
     FETCH_BOOKS_SUCCESS: 'FETCH_BOOKS_SUCCESS',
     FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
 };
 
-export default BookConstants;
+export default ActionConstants;

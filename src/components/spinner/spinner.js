@@ -1,10 +1,14 @@
 import React from 'react';
 
 import './spinner.css';
+import spin from './book-spinner.gif';
 
 const Spinner = () => {
     return (
-        <div>loading...</div>
+        <div className='spinner'>
+            <img src={spin} alt='spinner' />
+            <div>Loading...</div>
+        </div>
     );
 }
 

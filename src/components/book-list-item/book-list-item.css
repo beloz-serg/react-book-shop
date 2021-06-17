@@ -13,13 +13,13 @@
     max-width: 100%;
 }
 
-.book-list-item .book-title {
-    color: midnightblue;
+.book-list-item .book-details .book-title a {
+    color: steelblue;
+    text-decoration: none;
 }
 
-.book-list-item .book-title:hover {
-    color: royalblue;
-    cursor: pointer;
+.book-list-item .book-details .book-title a:hover {
+    color: teal;
 }
 
 .book-list-item .book-details {
@@ -32,6 +32,7 @@
 
 .book-list-item .book-details .book-title {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .book-list-item .book-details .book-price {

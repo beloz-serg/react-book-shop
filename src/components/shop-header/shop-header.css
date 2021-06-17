@@ -9,19 +9,18 @@
     font-family: 'Mate SC', serif;
     font-size: 2.5rem;
     padding-left: 1rem;
-}
-
-.shop-header .logo:hover {
-    cursor: pointer;
+    text-decoration: none;
+    color: slategray;
 }
 
 .shop-header .shopping-cart-wrapper {
     margin: 10px;
-    font-size: 1.3rem;
 }
 
-.shop-header .shopping-cart-wrapper:hover {
-    cursor: pointer;
+.shop-header .shopping-cart-wrapper a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: slategray;
 }
 
 .shop-header .shopping-cart-wrapper .shopping-cart {

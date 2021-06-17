@@ -1,14 +1,16 @@
-import BookConstants from "../constants";
+import { ActionConstants } from "../constants";
 
 const initialState = {
-    books: []
+    books: [],
+    loading: true
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case BookConstants.FETCH_BOOKS_SUCCESS:
+        case ActionConstants.FETCH_BOOKS_SUCCESS:
             return {
-                books: action.payload
+                books: action.payload,
+                loading: false
             };
         
         default:

@@ -1,10 +1,18 @@
 import React from 'react';
 
+import { ErrorConstants } from '../../constants';
+
 import './error-indicator.css';
 
-const ErrorIndicator = () => {
+const ErrorIndicator = ({ error }) => {
+    if (error === undefined) {
+        error = ErrorConstants.SOMETHING_HAPPENED;
+    }
+
     return (
-        <div>Error</div>
+        <div className='error-message'>
+           {error}
+        </div>
     );
 }
 

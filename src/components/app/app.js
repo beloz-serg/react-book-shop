@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import ShopHeader from '../shop-header';
-import { HomePage, CartPage } from '../pages';
+import { HomePage, CartPage, BookPage } from '../pages';
 
 import './app.css';
 
@@ -13,6 +13,7 @@ const App = () => {
             <Switch>
                 <Route path='/' component={HomePage} exact />
                 <Route path='/cart' component={CartPage} />
+                <Route path='/book' component={BookPage} />
             </Switch>
         </main>
     );

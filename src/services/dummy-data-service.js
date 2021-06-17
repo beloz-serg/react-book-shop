@@ -1,3 +1,6 @@
+import { ErrorConstants } from "../constants";
+
+const delay = 1000;
 
 const books = [
     {
@@ -31,7 +34,24 @@ const books = [
 ];
 
 export default class DummyDataService {
-    getData() {
-        return books;
+    getBooks() {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(books), delay);
+        });
+    }
+
+    getBook(id) {
+        const book = books.find(x => x.id === id);
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (book === undefined) {
+                    reject(ErrorConstants.BOOK_NOT_FOUND);
+                }
+                else {
+                    resolve(book);
+                }
+            }, delay);
+        });
     }
 }
