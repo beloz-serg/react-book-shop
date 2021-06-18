@@ -28,6 +28,7 @@
     justify-content: space-between;
     padding-bottom: 10px;
     align-items: flex-start;
+    max-width: 400px;
 }
 
 .book-list-item .book-details .book-title {
@@ -37,4 +38,5 @@
 
 .book-list-item .book-details .book-price {
     font-size: 1.4rem;
+    margin: 10px 0;
 }

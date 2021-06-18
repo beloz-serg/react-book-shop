@@ -9,13 +9,13 @@ const BookListItem = ({book}) => {
     return (
         <div className='book-list-item'>
             <div className='book-cover'>
-                <Link to='/book'>
+                <Link to={`/book/${book.id}`}>
                     <img src={book.img} alt='cover' /> 
                 </Link>  
             </div>
             <div className='book-details'>
                 <div className='book-title'>
-                    <Link to='/book'>
+                    <Link to={`/book/${book.id}`}>
                         {book.title}
                     </Link>
                 </div>

@@ -5,7 +5,7 @@ import Spinner from '../../spinner';
 import ErrorIndicator from '../../error-indicator';
 import { TitleConstants } from '../../../constants';
 
-import './book-page';
+import './book-page.css';
 
 class BookPage extends Component {
     state = {
@@ -14,9 +14,9 @@ class BookPage extends Component {
     };
 
     componentDidMount() {
-        const { dataService } = this.props;
+        const { dataService, id } = this.props;
 
-        dataService.getBook(355)
+        dataService.getBook(id)
                    .then((book) => {
                        this.setState({ book: book });
                    })
@@ -35,8 +35,6 @@ class BookPage extends Component {
         if (book === null) {
             return <Spinner />;
         }
-
-        console.log(book);
 
         return <div className='book-container'>
                     <div className='book-cover'>

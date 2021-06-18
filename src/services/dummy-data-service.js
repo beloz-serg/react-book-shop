@@ -41,7 +41,7 @@ export default class DummyDataService {
     }
 
     getBook(id) {
-        const book = books.find(x => x.id === id);
+        const book = books.find(x => x.id === parseInt(id));
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {

@@ -13,7 +13,7 @@ const App = () => {
             <Switch>
                 <Route path='/' component={HomePage} exact />
                 <Route path='/cart' component={CartPage} />
-                <Route path='/book' component={BookPage} />
+                <Route path='/book/:id' render={({ match }) => <BookPage id={match.params.id} />} />
             </Switch>
         </main>
     );
