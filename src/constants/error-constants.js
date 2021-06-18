@@ -4,4 +4,4 @@ const ErrorConstants = {
     BOOK_NOT_FOUND: 'Book not found'
 }
 
-export default ErrorConstants;
+export { ErrorConstants };

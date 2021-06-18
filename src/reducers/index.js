@@ -1,21 +1,11 @@
-import { ActionConstants } from "../constants";
+import { combineReducers } from "redux";
 
-const initialState = {
-    books: [],
-    loading: true
-};
+import booksReducer from "./books-reducer";
+import bookReducer from "./book-reducer";
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ActionConstants.FETCH_BOOKS_SUCCESS:
-            return {
-                books: action.payload,
-                loading: false
-            };
-        
-        default:
-            return state;
-    }
-};
+const reducer = combineReducers({
+    booksReducer,
+    bookReducer
+});
 
 export default reducer;

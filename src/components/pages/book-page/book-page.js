@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { bookRequested, bookLoaded, bookError } from '../../../actions';
 import { withDataService } from '../../hoc';
 import Spinner from '../../spinner';
 import ErrorIndicator from '../../error-indicator';
@@ -8,32 +10,32 @@ import { TitleConstants } from '../../../constants';
 import './book-page.css';
 
 class BookPage extends Component {
-    state = {
-        book: null,
-        error: null
-    };
 
     componentDidMount() {
-        const { dataService, id } = this.props;
+        const {
+            dataService,
+            id,
+            bookRequested,
+            bookLoaded,
+            bookError
+        } = this.props;
+
+        bookRequested();
 
         dataService.getBook(id)
-                   .then((book) => {
-                       this.setState({ book: book });
-                   })
-                   .catch((error) => {
-                       this.setState({ error: error});
-                   });
+                   .then((book) => bookLoaded(book))
+                   .catch((error) => bookError(error));
     }
 
     render() {
-        const { book, error } = this.state;
+        const { book, loading, error } = this.props;
+
+        if (loading) {
+            return <Spinner />;
+        }
 
         if (error !== null) {
             return <ErrorIndicator error={error} />;
-        }
-
-        if (book === null) {
-            return <Spinner />;
         }
 
         return <div className='book-container'>
@@ -60,4 +62,16 @@ class BookPage extends Component {
     }
 }
 
-export default withDataService(BookPage);
+const mapStateToProps = (state) => {
+    const { book, loading, error } = state.bookReducer;
+
+    return { book, loading, error };
+}
+
+const mapDispatchToProps = {
+    bookRequested,
+    bookLoaded,
+    bookError
+};
+
+export default withDataService(connect(mapStateToProps, mapDispatchToProps)(BookPage));

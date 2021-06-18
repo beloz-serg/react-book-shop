@@ -1,6 +1,7 @@
 import { ErrorConstants } from "../constants";
 
-const delay = 1000;
+const delay = 800;
+const loadBooksErrorProbability = 0;
 
 const books = [
     {
@@ -35,8 +36,15 @@ const books = [
 
 export default class DummyDataService {
     getBooks() {
-        return new Promise((resolve) => {
-            setTimeout(() => resolve(books), delay);
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (Math.random() * 10 > loadBooksErrorProbability) {
+                    resolve(books);
+                }
+                else {
+                    reject(ErrorConstants.SOMETHING_HAPPENED);
+                }
+            }, delay);
         });
     }
 
