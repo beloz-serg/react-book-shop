@@ -20,8 +20,14 @@ const bookError = (error) => {
     };
 };
 
+const fetchBook = (id, dispatch, dataService) => {
+    dispatch(bookRequested());
+
+    dataService.getBook(id)
+               .then((book) => dispatch(bookLoaded(book)))
+               .catch((error) => dispatch(bookError(error)));
+}
+
 export {
-    bookRequested,
-    bookLoaded,
-    bookError
+    fetchBook
 };

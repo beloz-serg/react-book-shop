@@ -1,0 +1,37 @@
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-container .book-cover {
+    margin: 20px;
+    min-width: 200px;
+}
+
+.book-container .book-cover img {
+    width: 100%;
+}
+
+.book-container .book-details {
+    margin: 20px;
+}
+
+.book-container .book-details .book-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    max-width: 400px;
+}
+
+.book-container .book-details .book-author {
+    font-size: 1rem;
+    color: slategrey;
+}
+
+.book-container .book-details .book-price {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.book-container .book-details .book-command {
+    margin-top: 20px;
+}

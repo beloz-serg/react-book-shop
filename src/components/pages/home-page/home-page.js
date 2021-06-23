@@ -1,13 +1,13 @@
 import React from 'react';
 
-import BookList from '../../book-list/book-list';
+import BookListContainer from '../../../containers/book-list-container';
 
 import './home-page.css';
 
 const HomePage = () => {
     return (
         <div>
-            <BookList />
+            <BookListContainer />
         </div>
     );
 };
