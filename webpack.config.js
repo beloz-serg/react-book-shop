@@ -1,6 +1,10 @@
 module.exports = {
     mode: 'development',
 
+    output: {
+        publicPath: '/'
+    },
+
     module: {
         rules: [
             {
