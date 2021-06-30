@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import './shopping-cart-table.css';
 
-const ShoppingCartTable = ({items, itemsTotal, onPlus, onMinus, onDelete}) => {
+const ShoppingCartTable = (props) => {
+    const {items, itemsTotal, onPlus, onMinus, onDelete} = props;
+    
     const Tr = (item, idx) => {
         const {id, title, count, total} = item;
 
@@ -58,18 +59,4 @@ const ShoppingCartTable = ({items, itemsTotal, onPlus, onMinus, onDelete}) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    const { items, itemsTotal } = state.cartReducer;
-
-    return { items, itemsTotal };
-};
-
-const mapDispatchToProps = () => {
-    return {
-        onPlus: (id) => console.log(`plus ${id}`),
-        onMinus: (id) => console.log(`minus ${id}`),
-        onDelete: (id) => console.log(`delete ${id}`)
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartTable);
+export default ShoppingCartTable;

@@ -1,8 +1,10 @@
 
 const CartActionConstants = {
+    ADD_ITEM: 'ADD_ITEM',
     INCREASE_ITEM_COUNT: 'INCREASE_ITEM_COUNT',
     DECREASE_ITEM_COUNT: 'DECREASE_ITEM_COUNT',
-    REMOVE_ITEM: 'REMOVE_ITEM'
+    REMOVE_ITEM: 'REMOVE_ITEM',
+    CART_ERROR: 'CART_ERROR'
 };
 
 export { CartActionConstants };

@@ -4,7 +4,7 @@ import { TitleConstants } from '../../constants';
 
 import './book-view.css';
 
-const BookView = ({ book }) => {
+const BookView = ({ book, addToCart }) => {
     return (
         <div className='book-container'>
             <div className='book-cover'>
@@ -21,7 +21,8 @@ const BookView = ({ book }) => {
                     ${book.price}
                 </div>
                 <div className='book-command'>
-                    <button className='btn btn-info'>
+                    <button onClick={() => addToCart(book.id)}
+                        className='btn btn-info'>
                         {TitleConstants.ADD_TO_CART}
                     </button>
                 </div>

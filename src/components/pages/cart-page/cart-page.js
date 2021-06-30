@@ -1,13 +1,11 @@
 import React from 'react';
 
-import ShoppingCartTable from '../../shopping-cart-table';
+import ShoppingCartContainer from '../../../containers/shopping-cart-container';
 
 import './cart-page.css';
 
 const CartPage = () => {
-    return (
-        <ShoppingCartTable />
-    );
+    return <ShoppingCartContainer />;
 };
 
 export default CartPage;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchBook } from '../actions';
+import { fetchBook, addItem } from '../actions';
 import { withDataService } from '../components/hoc';
 import BookView from '../components/book-view';
 import Spinner from '../components/spinner';
@@ -16,7 +16,7 @@ class BookPageContainer extends Component {
     }
 
     render() {
-        const { book, loading, error } = this.props;
+        const { book, loading, error, addToCart } = this.props;
 
         if (loading) {
             return <Spinner />;
@@ -26,19 +26,25 @@ class BookPageContainer extends Component {
             return <ErrorIndicator error={error} />;
         }
 
-        return <BookView book={book} />;
+        return <BookView book={book} addToCart={addToCart} />;
     }
 }
 
 const mapStateToProps = (state) => {
-    const { book, loading, error } = state.bookReducer;
+    const { book, loading, error: bookError } = state.bookReducer;
+    const { error: cartError } = state.cartReducer;
 
-    return { book, loading, error };
+    return {
+        book, 
+        loading,
+        error: bookError ? bookError : cartError
+    };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchBook: (id) => fetchBook(id, dispatch, ownProps.dataService)
+        fetchBook: (id) => fetchBook(id, dispatch, ownProps.dataService),
+        addToCart: (id) => addItem(id, dispatch, ownProps.dataService)
     };
 };
 
