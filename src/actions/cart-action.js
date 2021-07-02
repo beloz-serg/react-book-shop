@@ -8,6 +8,7 @@ const addItem = (id, dispatch, dataService) => {
                 id: book.id,
                 title: book.title,
                 count: 1,
+                price: book.price,
                 total: book.price
             };
 

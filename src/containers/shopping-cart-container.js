@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import ShoppingCartTable from '../components/shopping-cart-table';
 import ErrorIndicator from '../components/error-indicator';
+import { itemIncreased, itemDecreased, itemDeleted } from '../actions/cart-action';
 
 const ShoppingCartContainer = (props) => {
 
@@ -19,12 +20,10 @@ const mapStateToProps = (state) => {
     return { items, itemsTotal, error };
 };
 
-const mapDispatchToProps = () => {
-    return {
-        onPlus: (id) => console.log(`plus ${id}`),
-        onMinus: (id) => console.log(`minus ${id}`),
-        onDelete: (id) => console.log(`delete ${id}`)
-    }
+const mapDispatchToProps =  {
+        onPlus: itemIncreased,
+        onMinus: itemDecreased,
+        onDelete: itemDeleted
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartContainer);
