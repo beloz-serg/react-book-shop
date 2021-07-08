@@ -1,4 +1,5 @@
 import React from 'react';
+import * as math from 'mathjs';
 
 import './shopping-cart-table.css';
 
@@ -13,7 +14,7 @@ const ShoppingCartTable = (props) => {
                 <td>{idx + 1}</td>
                 <td>{title}</td>
                 <td>{count}</td>
-                <td>${total}</td>
+                <td>${math.format(total, { precision: 4 })}</td>
                 <td>
                     <button onClick={() => onPlus(id)}
                         className='btn btn-outline-success btn-small'>
@@ -53,7 +54,7 @@ const ShoppingCartTable = (props) => {
             </table>
 
             <div className='total'>
-                Total: ${itemsTotal}
+                Total: ${math.format(itemsTotal, { precision: 4 })}
             </div>
         </div>
     );
